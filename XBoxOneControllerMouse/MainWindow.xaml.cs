@@ -52,11 +52,11 @@ namespace XBoxOneControllerMouse {
                     var xMove = (Int32) _controller.LeftThumb.X / (20 - Properties.Settings.Default.Sensitivity);
                     var yMove = (Int32) _controller.LeftThumb.Y / (20 - Properties.Settings.Default.Sensitivity);
 
-                    MouseActions.SetCursorPos(currentCursorPos.X + xMove, currentCursorPos.Y + yMove);
+                    MouseActions.SetMousePosition(currentCursorPos.X + xMove, currentCursorPos.Y + yMove);
 
                     currentCursorPos = MouseActions.GetMousePosition();
                     var hMove = (Int32) _controller.RightThumb.X / (20 - Properties.Settings.Default.Sensitivity);
-                    var vMove = (Int32) _controller.RightThumb.Y / (20 - Properties.Settings.Default.Sensitivity);
+                    var vMove = (Int32) _controller.RightThumb.Y / (20 - Properties.Settings.Default.Sensitivity) * -1;
 
                     MouseActions.ScrollVerticalWheel(currentCursorPos.X, currentCursorPos.Y, vMove);
                     MouseActions.ScrollHorizonalWheel(currentCursorPos.X, currentCursorPos.Y, hMove);
